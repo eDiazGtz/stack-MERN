@@ -5,15 +5,15 @@ function App() {
 
   const projectData = [
     {
-      firstName : "Jane",
-      lastName : "Doe",
-      age : 45,
+      firstName : "Dalinar",
+      lastName : "Kholin",
+      age : 54,
       hairColor : "Black"
     },
     {
-      firstName : "John",
-      lastName : "Smith",
-      age : 88,
+      firstName : "Adolin",
+      lastName : "Kholin",
+      age : 31,
       hairColor : "Brown"
     },
     {
@@ -25,7 +25,7 @@ function App() {
     {
       firstName : "Shallan",
       lastName : "Davar",
-      age : 28,
+      age : 32,
       hairColor : "Red"
     },
   ]
