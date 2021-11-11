@@ -4,7 +4,7 @@ const Footer = () => {
 
 
 return (
-    <img src="./logo192.jpg" alt="Napoleon has Skills" className="footer-img" />
+    <img src="./skils.jpg" alt="Napoleon has Skills" className="footer-img" />
 );
 
 }
