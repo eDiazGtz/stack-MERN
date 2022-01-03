@@ -7,31 +7,16 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true }));
 
-//  configure my connection with Mongo / using Mongoose
-const mongoose = require('mongoose');
+// connect with the Mongo db for this app
+// this syntax will RUN the code inside of the mongoose.config.js file
+// it does NOT import it
+require('./config/mongoose.config');
 
-mongoose.connect('')
-
-// routes go here
-app.get('/',(req, res) => {
-    return res.json({ message: 'Hello World!' });
-})
-
-app.get('/api/dogs', (req, res) => {
-    console.log("We got some dogs");
-})
-
-// I want to just get ONE dog, based on its _id
-app.get('/api/dogs/:dogId', (req, res) => {
-    console.log('Getting a single dog');
-})
-
-// if data is being sent TO my server to create something new, we use a post request
-app.post('/api/dogs/create', (req, res) => {
-    console.log('Creating a single dog socuments in our Mongo DB')
-})
-
-
+// require the routes so they can be loaded into our app server
+// it needs to listen to all the routes for our dogs
+const dogRoutes = require('./routes/dog.routes');
+//dogRoutes is the function we exported in the routes file
+dogRoutes(app); // pass in the configured app server so the routes are setup
 
 // This MUST be the last line of code in the file = no routes below this line
 app.listen(8000, () => 
