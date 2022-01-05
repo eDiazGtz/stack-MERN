@@ -1,3 +1,5 @@
+const { model } = require('mongoose');
+const { on } = require('../models/restaurant.model');
 const Restaurant = require('../models/restaurant.model');
 
 module.exports.getAll = (req, res) => {
@@ -28,3 +30,22 @@ module.exports.create = (req, res) => {
             res.status(400).json(err);
         })
 };
+
+    // get a single restaurant
+    model.exports.getOne = (req, res) => {
+        console.log('Inside getOne');
+        console.log(`Looking for ID: ${req.params.id}`);
+
+        Restaurant.findById(req.params.id)
+            .then((oneRestaurant) => {
+                console.log(oneRestaurant);
+                res.json(oneRestaurant)
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(400).json(err);
+            })
+    };
+
+    // update a single restaurant
+    // delete a single restaurant
