@@ -12,7 +12,8 @@ function App() {
     <div className="App">
       <h1>Welcome to our Restaurants App!</h1>
       <Router>
-        <AllRestaurants path='/restaurants' />
+        {/* default attr will set that as default path if nothing matched the existing routes */}
+        <AllRestaurants default path='/restaurants' />
         <Create path='/restaurants/new' />
         <Details path='/restaurants/:id' />
         <Edit path='/restaurants/:id/edit' />
